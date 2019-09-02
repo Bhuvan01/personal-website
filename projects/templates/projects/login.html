@@ -1,0 +1,26 @@
+{% extends 'projects/home.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+<h1>Login</h1>
+<hr>
+
+<form method="POST">
+	{% csrf_token %}
+	<input type="username" placeholder="Enter Username"  name="username">
+	<br>
+	<br>
+	<input type="password" placeholder="Enter Password"  name="password">
+	<br>
+	<br>
+	<input class="btn btn-primary" type="submit" name="Sign Up">
+
+</form>
+</div>
+
+{% endblock %}

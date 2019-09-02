@@ -1,0 +1,79 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+     <title>{% block title %}Bhuwan Neupane - Portfolio{% endblock %}</title>
+
+    <!-- for social link thumbnauls -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+   
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'projects/css/cover.css' %}">
+  </head>
+  <body >
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+     <a class="mr-auto"  href="{% url 'home' %}"><b><img src="{% static 'projects/images/logo.png' %}" height="45" width="45"></b></a>
+      <nav class="nav nav-masthead justify-content-center">
+       <a class="nav-link " href="{% url 'home' %}"><b>Home</b></a>
+        <a class="nav-link" href="{% url 'blog' %}"><b>Blogs</b></a>  
+        <a class="nav-link" href="{% url 'about' %}"><b>About</b></a>  
+        <a class="nav-link" href="{% url 'contact' %}"><b>Contact</b></a>
+        {% if user.is_authenticated %}        
+           <a class="nav-link" href="{% url 'logout' %}"><b>Log Out</b></a>     
+        {% else %}       
+          <a class="nav-link" href="{% url 'signup' %}"><b>Sign up</b></a>     
+        {% endif %}     
+      </nav>
+    </div>
+  </header>
+
+   {% if error %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">  
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ error }}  
+</div>
+{% endif %}
+{% block content %}
+  
+   <center><img src="{% static 'projects/images/bb.png' %}" height="200", width="200"></center>
+  <main role="main" class=" text-center">
+    <h1 class="cover-heading">Hi, I am Bhuwan.</h1>
+    <p class="lead">I am a full stack web developer.</p>
+    <p class="lead">
+    <a href="{% url 'portfolio' %}" class="btn btn-lg btn-primary">Portfolio</a> </p>
+  </main>
+  
+  {% endblock %}
+
+    <footer class="text-center mastfoot mt-auto">
+      <hr>
+      <a href="https://www.facebook.com/profile.php?id=100009882195723" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/0neBhu" class="fa fa-twitter"></a>
+        <a href="https://www.linkedin.com/in/bhuwan-neupane-061401165/" class="fa fa-linkedin"></a>
+        <a href="https://www.instagram.com/i_am_bhu_one/" class="fa fa-instagram"></a>
+        <br>
+        <p class="text-center"> &copyBhuwan Bahadur Neupane {% now 'Y' %}</p>         
+  </footer>
+
+  
+</div>
+</body>
+</html>
+
